@@ -1,0 +1,108 @@
+Dưới đây là CORE FLOW (LUỒNG NGHIỆP VỤ CỐT LÕI) của dự án Hệ thống bán kính mắt trực tuyến, được viết chuẩn học thuật – dễ hiểu – dễ vẽ BPMN/Sequence Diagram, bạn có thể copy thẳng vào Word.
+Tôi chia thành:
+1.Tổng quan Core Flow
+2.Core Flow chính (End-to-End)
+3.Các Core Flow theo loại đơn hàng
+4.Core Flow hậu mãi (After-Sales)
+
+1. TỔNG QUAN CORE FLOW
+Core Flow của hệ thống mô tả toàn bộ vòng đời của một đơn hàng, bắt đầu từ lúc khách hàng tìm kiếm sản phẩm đến khi đơn hàng được hoàn tất hoặc xử lý hậu mãi.
+Các bước cốt lõi gồm:
+Tìm kiếm & lựa chọn sản phẩm
+Tạo đơn hàng theo loại phù hợp
+Xác nhận & xử lý đơn
+Gia công / vận hành / giao hàng
+Hậu mãi & chăm sóc khách hàng
+
+2. CORE FLOW CHÍNH (END-TO-END FLOW)
+CF-01: Luồng mua hàng tổng quát
+1.Khách hàng truy cập hệ thống và duyệt danh mục sản phẩm.
+2.Khách hàng tìm kiếm, lọc và xem chi tiết sản phẩm.
+3.Khách hàng lựa chọn loại đơn hàng:
+oKính có sẵn
+oPre-order
+oPrescription order
+4.Khách hàng thêm sản phẩm vào giỏ hàng.
+5.Khách hàng thực hiện checkout và thanh toán.
+6.Hệ thống tạo đơn hàng với trạng thái ban đầu.
+7.Sales/Support tiếp nhận và xác nhận đơn hàng.
+8.Đơn hàng được chuyển cho bộ phận Operations xử lý.
+9.Operations thực hiện vận hành tương ứng theo loại đơn.
+10.Đơn hàng được giao cho khách hàng.
+11.Hệ thống cập nhật trạng thái hoàn tất đơn hàng.
+
+3. CORE FLOW THEO LOẠI ĐƠN HÀNG
+3.1 Core Flow – Đơn kính có sẵn (Ready Product)
+CF-02: Ready Order Flow
+1.Khách hàng chọn kính có sẵn từ danh mục.
+2.Hệ thống kiểm tra tồn kho sản phẩm.
+3.Khách hàng thanh toán đơn hàng.
+4.Sales/Support xác nhận đơn.
+5.Operations đóng gói sản phẩm.
+6.Operations tạo vận đơn và cập nhật tracking.
+7.Đơn hàng được giao đến khách hàng.
+
+3.2 Core Flow – Đơn Pre-Order
+CF-03: Pre-Order Flow
+1.Khách hàng chọn sản phẩm đang hết hàng.
+2.Hệ thống hiển thị thông tin pre-order và ngày dự kiến về hàng.
+3.Khách hàng xác nhận đặt pre-order.
+4.Sales/Support tiếp nhận và xác nhận đơn pre-order.
+5.Operations nhận hàng về kho khi đến hạn.
+6.Operations cập nhật tồn kho.
+7.Operations đóng gói và giao hàng cho khách hàng.
+
+3.3 Core Flow – Đơn Prescription (Kính theo đơn)
+CF-04: Prescription Order Flow
+1.Khách hàng tạo hoặc chọn Eye Profile.
+2.Khách hàng thiết kế kính (chọn gọng, tròng).
+3.Hệ thống kiểm tra tính phù hợp giữa đơn kính và sản phẩm.
+4.Khách hàng xác nhận cấu hình kính và thanh toán.
+5.Sales/Support kiểm tra đơn kính.
+6.Sales/Support liên hệ khách hàng nếu cần điều chỉnh.
+7.Sales/Support xác nhận đơn prescription.
+8.Operations tiến hành gia công lắp tròng.
+9.Operations kiểm tra chất lượng kính.
+10.Operations đóng gói và giao hàng.
+
+4. CORE FLOW HẬU MÃI (AFTER-SALES FLOW)
+4.1 Core Flow – Đổi trả / Bảo hành
+CF-05: After-Sales Support Flow
+1.Khách hàng gửi yêu cầu đổi trả / bảo hành.
+2.Hệ thống tạo ticket hỗ trợ.
+3.Sales/Support tiếp nhận ticket.
+4.Sales/Support kiểm tra điều kiện áp dụng chính sách.
+5.Nếu hợp lệ:
+oXác nhận đổi trả / bảo hành
+oChuyển cho Operations xử lý
+6.Operations thực hiện đổi sản phẩm / sửa chữa.
+7.Hệ thống cập nhật trạng thái ticket và đơn hàng.
+
+5. CORE FLOW PHÂN QUYỀN & QUẢN LÝ
+5.1 Core Flow – Quản lý nghiệp vụ (Manager)
+CF-06: Business Management Flow
+1.Manager đăng nhập hệ thống.
+2.Manager cấu hình chính sách mua hàng, đổi trả, bảo hành.
+3.Manager quản lý sản phẩm và giá bán.
+4.Manager theo dõi doanh thu và hiệu quả kinh doanh.
+
+5.2 Core Flow – Quản trị hệ thống (System Admin)
+CF-07: System Administration Flow
+1.System Admin đăng nhập hệ thống.
+2.System Admin cấu hình các tham số hệ thống.
+3.System Admin quản lý phân quyền truy cập.
+4.System Admin giám sát hoạt động hệ thống.
+
+6. TÓM TẮT CORE FLOW
+Core Flow của hệ thống đảm bảo:
+Phân tách rõ vai trò người dùng
+Hỗ trợ nhiều loại đơn hàng
+Luồng xử lý nhất quán, dễ mở rộng
+Phù hợp để triển khai BPMN, Sequence Diagram và Use Case
+
+Nếu bạn muốn bước tiếp theo, tôi có thể:
+Viết BPMN Flow chi tiết
+Vẽ Sequence Diagram cho từng Core Flow
+Rút gọn lại thành 1 trang tóm tắt Core Flow
+Chuẩn hóa thành phần 4 trong SRS
+Chỉ cần nói tiếp bạn cần mức chi tiết bao nhiêu.
