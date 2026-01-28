@@ -1,0 +1,41 @@
+import org.springframework.stereotype.Service;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.Base64;
+
+@Service
+public class AuthServiceImpl implements AuthService {
+
+    private final CustomerAccountRepository customerRepo;
+    private final StaffAccountRepository staffRepo;
+
+    public AuthServiceImpl(CustomerAccountRepository customerRepo,
+                           StaffAccountRepository staffRepo) {
+        this.customerRepo = customerRepo;
+        this.staffRepo = staffRepo;
+    }
+
+    @Override
+    public String login(String username, String password) {
+        String hash = hashPassword(password);
+
+        if (customerRepo.findByUsernameAndPasswordHash(username, hash).isPresent())
+            return "LOGIN_SUCCESS_CUSTOMER";
+
+        if (staffRepo.findByUsernameAndPasswordHash(username, hash).isPresent())
+            return "LOGIN_SUCCESS_STAFF";
+
+        return null;
+    }
+
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] bytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+            return Base64.getEncoder().encodeToString(bytes);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
