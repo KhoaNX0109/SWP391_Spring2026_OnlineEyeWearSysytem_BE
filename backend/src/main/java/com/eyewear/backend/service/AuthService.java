@@ -1,7 +1,7 @@
 package com.eyewear.backend.service;
 
-import com.eyewear.backend.dto.LoginRequest;
-import com.eyewear.backend.dto.LoginResponse;
+import com.eyewear.backend.dto.request.LoginRequest;
+import com.eyewear.backend.dto.response.LoginResponse;
 import com.eyewear.backend.entity.CustomerAccount;
 import com.eyewear.backend.repository.CustomerAccountRepository;
 import com.eyewear.backend.util.JwtUtil;
