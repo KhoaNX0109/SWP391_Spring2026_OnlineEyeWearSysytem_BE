@@ -1,6 +1,5 @@
 package com.eyewear.backend.exception;
 
-import com.eyewear.backend.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -8,6 +7,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+
+import com.eyewear.backend.dto.response.ErrorResponse;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
 package com.eyewear.backend.controller;
 
-import com.eyewear.backend.dto.ErrorResponse;
-import com.eyewear.backend.dto.LoginRequest;
-import com.eyewear.backend.dto.LoginResponse;
+import com.eyewear.backend.dto.request.LoginRequest;
+import com.eyewear.backend.dto.response.ErrorResponse;
+import com.eyewear.backend.dto.response.LoginResponse;
 import com.eyewear.backend.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
